@@ -36,7 +36,7 @@ curl -sSL https://realesys.github.io/vps/ubuntu2404lts/setup-node.sh | bash
 
 ### Mysql Server 
 
-For mysql server (we recommend changing the root password later as per vps checklist):
+For mysql server:
 ```bash
-curl -sSL https://realesys.github.io/vps/db/mysql-server.sh | bash -s -- -p "YourRootPasswordHere"
+curl -sSL https://realesys.github.io/vps/db/mysql-server.sh | bash
 ```
