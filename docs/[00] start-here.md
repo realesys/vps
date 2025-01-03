@@ -3,11 +3,11 @@
 ## Installs
 To setup a fresh server with the all the most basic configurations:
 
-the lazy way:
+- The lazy way:
 ```bash
 curl -sSL https://realesys.github.io/vps/ubuntu2404lts/setup-full-v1.sh | bash
 ```
-the secure way:
+- The secure way:
 ```bash
 
 # Download the script 
