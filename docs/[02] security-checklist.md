@@ -30,6 +30,29 @@ sudo ufw delete allow 22/tcp  # Optional: block default SSH port through UFW
 
 --- 
 
+## Adding new user: 
+
+- First, create a new user that you can use for administrative tasks:
+
+```bash 
+sudo adduser <username>
+```
+
+- Add the User to the Sudo Group:
+
+```bash 
+sudo usermod -aG sudo <username>
+```
+
+- Test the Sudo Privileges:
+
+```bash 
+su - <username>
+sudo whoami
+``` 
+
+--- 
+
 ## Disallowing root login: 
 
 Disabling root login for SSH access is a good security practice. This forces attackers to guess both a username and a password, reducing the attack surface for brute force attacks.
