@@ -51,13 +51,6 @@ Please refer to the `/docs` directory for further information.
 
 ---
 
-# We're hiring:
-At ORDE, we believe great ideas and growth come from diverse perspectives. Our success is driven by the unique contributions of each team member. We foster a culture of inclusivity where everyone, regardless of background—minorities, people with disabilities, and underrepresented groups—is empowered to thrive. We encourage talented individuals from all over the world to apply.
-
-Check out our available openings and more details at [orde.uk](https://orde.uk/).
-
---- 
-
 # License
 
 These scripts are licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
