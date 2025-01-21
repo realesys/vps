@@ -55,6 +55,12 @@ sudo iptables-save | sudo tee /etc/iptables/rules.v4
 sudo ip6tables-save | sudo tee /etc/iptables/rules.v6
 ```
 
+- Make sure iptables-persistent is enabled:
+```bash
+sudo systemctl enable netfilter-persistent
+sudo systemctl start netfilter-persistent
+```
+
 ### Firewall Settings: 
 After changing the SSH port, remember to update the firewall (UFW or iptables) to allow connections on the new port:
 - Check if UFW is active:
