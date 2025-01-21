@@ -130,7 +130,7 @@ sudo systemctl enable nginx
 
 sudo ufw allow ssh
 sudo ufw allow 'Nginx Full'  # Adding --force to avoid prompts
-sudo ufw enable
+sudo ufw --force enable
 
 # ## ## ## ## ## ## ## ## ## ## ## ## ##
 # ## certbot                          ##
