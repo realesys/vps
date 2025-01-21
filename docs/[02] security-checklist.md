@@ -51,8 +51,7 @@ sudo apt install iptables-persistent -y
 - Save iptables rules:
 
 ```bash
-sudo iptables-save | sudo tee /etc/iptables/rules.v4
-sudo ip6tables-save | sudo tee /etc/iptables/rules.v6
+sudo netfilter-persistent save
 ```
 
 - Make sure iptables-persistent is enabled:
