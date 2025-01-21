@@ -14,6 +14,11 @@ Users in the root group:
 getent group root
 ```
 
+## Check if iptable rules are still in place
+
+```bash
+sudo iptables -L -v -n
+```
 
 ## Check Failed Login Attempts in the Audit Logs
 
