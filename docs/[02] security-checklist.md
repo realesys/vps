@@ -41,11 +41,18 @@ sudo iptables -A INPUT -p tcp --tcp-flags ALL ALL -j DROP
 sudo iptables -A INPUT -p tcp --tcp-flags ALL FIN,PSH,URG -j DROP
 sudo iptables -A INPUT -p tcp --tcp-flags SYN,RST SYN,RST -j DROP
 ```
+
+- In order to persist rules we need to install iptables-persistent:
+- 
+```bash
+sudo apt install iptables-persistent -y
+```
+
 - Save iptables rules:
 
 ```bash
-sudo netfilter-persistent save
-sudo netfilter-persistent reload
+sudo iptables-save | sudo tee /etc/iptables/rules.v4
+sudo ip6tables-save | sudo tee /etc/iptables/rules.v6
 ```
 
 ### Firewall Settings: 
