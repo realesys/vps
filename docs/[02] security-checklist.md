@@ -29,6 +29,25 @@ maxretry = 3
 sudo iptables -A INPUT -p tcp --dport 2222 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 22 -j DROP  # Optional: block default SSH port
 ```
+
+### Use iptables to Drop Stealth Scans
+To block stealth scanning techniques like NULL, Xmas, and FIN scans:
+
+- Create iptables rules:
+
+```bash
+sudo iptables -A INPUT -p tcp --tcp-flags ALL NONE -j DROP
+sudo iptables -A INPUT -p tcp --tcp-flags ALL ALL -j DROP
+sudo iptables -A INPUT -p tcp --tcp-flags ALL FIN,PSH,URG -j DROP
+sudo iptables -A INPUT -p tcp --tcp-flags SYN,RST SYN,RST -j DROP
+```
+- Save iptables rules:
+
+```bash
+sudo netfilter-persistent save
+sudo netfilter-persistent reload
+```
+
 ### Firewall Settings: 
 After changing the SSH port, remember to update the firewall (UFW or iptables) to allow connections on the new port:
 - Check if UFW is active:
@@ -91,6 +110,22 @@ sudo systemctl restart ssh
 ```
 
 --- 
+
+## Disable ICMP Ping Requests 
+Attackers often use ping sweeps to discover live hosts.
+
+- Disable ICMP (ping) responses:
+
+```bash
+echo "net.ipv4.icmp_echo_ignore_all = 1" | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+```
+
+- From another machine, check if ICMP is disabled:
+
+```bash
+ping <SERVER_IP>
+```
 
 ## Setting Up SSH Key Authentication:
 
