@@ -7,6 +7,9 @@ Once the server is up and running it's time to make sure it's production ready. 
 ## Changing the SSH Port:
 It is a default practice for us to change the SSH port on our servers to improve security. If you modify the SSH port (for example, to port 2222), you will need to update the Fail2Ban, iptables, and any other configurations that rely on the default port (22) to reflect the new port number.
 - Fail2Ban: Update the /etc/fail2ban/jail.local configuration file to specify the new SSH port:
+```bash
+sudo nano /etc/fail2ban/jail.local
+```
 ```bash 
 [sshd]
 enabled = true
