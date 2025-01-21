@@ -43,7 +43,7 @@ sudo iptables -A INPUT -p tcp --tcp-flags SYN,RST SYN,RST -j DROP
 ```
 
 - In order to persist rules we need to install iptables-persistent:
-- 
+
 ```bash
 sudo apt install iptables-persistent -y
 ```
