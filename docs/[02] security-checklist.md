@@ -6,7 +6,9 @@ Once the server is up and running it's time to make sure it's production ready. 
 
 ## Changing the SSH Port:
 It is a default practice for us to change the SSH port on our servers to improve security. If you modify the SSH port (for example, to port 2222), you will need to update the Fail2Ban, iptables, and any other configurations that rely on the default port (22) to reflect the new port number.
-- Fail2Ban: Update the /etc/fail2ban/jail.local configuration file to specify the new SSH port:
+### Fail2Ban: 
+
+- Update the /etc/fail2ban/jail.local configuration file to specify the new SSH port:
 ```bash
 sudo nano /etc/fail2ban/jail.local
 ```
@@ -19,16 +21,33 @@ logpath = /var/log/auth.log
 maxretry = 3
 
 ```
-- iptables: Modify the iptables rules to allow traffic on the new SSH port:
+### iptables: 
+
+- Modify the iptables rules to allow traffic on the new SSH port:
 ```bash 
 # Replace 2222 with your custom SSH port number
 sudo iptables -A INPUT -p tcp --dport 2222 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 22 -j DROP  # Optional: block default SSH port
 ```
-- Firewall Settings: After changing the SSH port, remember to update the firewall (UFW or iptables) to allow connections on the new port:
+### Firewall Settings: 
+After changing the SSH port, remember to update the firewall (UFW or iptables) to allow connections on the new port:
+- Check if UFW is active:
 ```bash 
-sudo ufw allow 2222/tcp  # Allow the new SSH port through UFW
-sudo ufw delete allow 22/tcp  # Optional: block default SSH port through UFW
+sudo ufw status verbose
+```
+- Allow the new SSH port through UFW
+```bash 
+sudo ufw allow 2222/tcp  
+```
+
+
+- Verify the SSH is now on the new port:
+```bash
+sudo sshd -T | grep port
+```
+- Block default SSH port through UFW
+```bash
+sudo ufw deny 22/tcp
 ```
 
 --- 
