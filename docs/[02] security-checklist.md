@@ -45,7 +45,7 @@ Before logging out, open a new terminal and try connecting using the new port:
 ```bash
 ssh -p 2222 user@your-server-ip
 ```
-
+--- 
 
 ### Fail2Ban: 
 
@@ -62,6 +62,8 @@ logpath = /var/log/auth.log
 maxretry = 3
 
 ```
+--- 
+
 ### iptables: 
 
 - Modify the iptables rules to allow traffic on the new SSH port:
@@ -100,6 +102,8 @@ sudo netfilter-persistent save
 sudo systemctl enable netfilter-persistent
 sudo systemctl start netfilter-persistent
 ```
+
+--- 
 
 ### Firewall Settings: 
 After changing the SSH port, remember to update the firewall (UFW or iptables) to allow connections on the new port:
@@ -168,7 +172,7 @@ sudo systemctl restart ssh
 Attackers often use ping sweeps to discover live hosts.
 
 - Disable ICMP (ping) responses:
-
+(This won't persist after reboot.)
 ```bash
 echo "net.ipv4.icmp_echo_ignore_all = 1" | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p
