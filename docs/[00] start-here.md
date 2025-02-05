@@ -25,6 +25,12 @@ chmod +x setup.sh
 
 ---
 
+### Security Only
+To setup only the security bundle (e.g.: dockploy machine): 
+```bash 
+curl -sSL https://realesys.github.io/vps/ubuntu2404lts/setup-security.sh | bash
+```
+
 ### Node
 
 To setup only for node websites (no php):
@@ -36,7 +42,7 @@ curl -sSL https://realesys.github.io/vps/ubuntu2404lts/setup-node.sh | bash
 
 ### Mysql Server 
 
-For mysql server:
+To setup mysql server as the db:
 ```bash
 curl -sSL https://realesys.github.io/vps/db/mysql-server.sh | bash
 ```
