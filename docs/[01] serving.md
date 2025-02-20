@@ -15,5 +15,5 @@ curl -sSL https://realesys.github.io/vps/db/new-mysql-siteuser.sh | bash -s -- -
 ## S3 with MinIO
 
 ```bash
-curl -sSL https://realesys.github.io/vps/s3/setup-MinIO-S3-v1.sh | bash -s -- -d "/mnt/storage" -u "your-username"
+curl -sSL https://realesys.github.io/vps/S3/setup-MinIO-S3-v1.sh | bash -s -- -d "/mnt/storage" -u "your-username"
 ```
