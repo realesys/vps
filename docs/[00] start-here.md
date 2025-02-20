@@ -51,5 +51,5 @@ curl -sSL https://realesys.github.io/vps/db/mysql-server.sh | bash
 
 To setup only for local dokploy:
 ```bash
-curl -sSL https://realesys.github.io/vps/docker/dokploy-local.sh | bash -- -s --advertise-addr "YOUR-LAN-IP-ADDR"
+curl -sSL https://realesys.github.io/vps/docker/dokploy-local.sh | bash -s -- --advertise-addr "YOUR-LAN-IP-ADDR"
 ```
