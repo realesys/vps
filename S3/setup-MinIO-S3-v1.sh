@@ -49,4 +49,10 @@ echo "Starting MinIO server with $MNT_DIR..."
 # Start MinIO as a background process
 nohup minio server "$MNT_DIR" > /dev/null 2>&1 &
 
+# Allow webui and API ports
+sudo ufw allow 37267/tcp
+sudo ufw allow 9000/tcp
+
+curl http://localhost:9000/minio/health/ready
+
 echo "MinIO server is running. Access it at http://localhost:9000"
