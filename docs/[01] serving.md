@@ -11,3 +11,9 @@ For a new site user and db:
 ```bash
 curl -sSL https://realesys.github.io/vps/db/new-mysql-siteuser.sh | bash -s -- -u "siteUser" -d "databaseName"
 ```
+
+# S3 with MinIO
+
+```bash
+curl -sSL https://realesys.github.io/vps/s3/setup-MinIO-S3-v1.sh | bash -s -- -d "/mnt/storage" -u "your-username"
+```
