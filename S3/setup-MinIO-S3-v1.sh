@@ -102,7 +102,7 @@ MINIO_VOLUMES="$MNT_DIR"
 
 # MINIO_OPTS sets any additional commandline options to pass to the MinIO server.
 # For example, `--console-address :9001` sets the MinIO Console listen port
-#MINIO_OPTS="--console-address :9000"
+MINIO_OPTS="--console-address :9001"
 EOF
 
 # Start MinIO server
@@ -114,5 +114,6 @@ sudo systemctl enable minio
 
 # Allow webui and API ports
 sudo ufw allow 9000/tcp
+sudo ufw allow 9001/tcp
 
 echo "MinIO server is running. Access it at http://localhost:9000"
