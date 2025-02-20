@@ -46,3 +46,10 @@ To setup mysql server as the db:
 ```bash
 curl -sSL https://realesys.github.io/vps/db/mysql-server.sh | bash
 ```
+
+### Docker
+
+To setup only for local dokploy:
+```bash
+curl -sSL https://realesys.github.io/vps/docker/dokploy-local.sh | bash
+```
