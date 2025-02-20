@@ -1,4 +1,29 @@
 #!/bin/bash
+
+# Parse arguments
+advertise_addr="localhost"  # Default value
+
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        --advertise-addr)
+            advertise_addr="$2"
+            shift 2
+            ;;
+        *)
+            echo "Unknown option: $1"
+            exit 1
+            ;;
+    esac
+done
+
+# Ensure the passed IP address is valid
+if ! ip addr show | grep -q "$advertise_addr"; then
+    echo "Error: The IP address $advertise_addr is not valid or not available on this machine." >&2
+    exit 1
+fi
+
+echo "Using advertise address: $advertise_addr"
+
 install_dokploy() {
     if [ "$(id -u)" != "0" ]; then
         echo "This script must be run as root" >&2
@@ -41,11 +66,7 @@ install_dokploy() {
 
     docker swarm leave --force 2>/dev/null
 
-    # Get the IP address from the argument or use localhost as default
-    advertise_addr="${1:-localhost}"
-    echo "Using advertise address: $advertise_addr"
-
-    docker swarm init
+    docker swarm init --advertise-addr $advertise_addr
     
      if [ $? -ne 0 ]; then
         echo "Error: Failed to initialize Docker Swarm" >&2
