@@ -36,8 +36,8 @@ fi
 
 # Install MinIO binary
 echo "Downloading and installing MinIO..."
-sudo wget -q https://dl.min.io/server/minio/release/linux-amd64/minio -O /usr/local/bin/minio
-sudo chmod +x /usr/local/bin/minio
+sudo wget https://dl.min.io/server/minio/release/linux-amd64/archive/minio_20250218162555.0.0_amd64.deb -O minio.deb
+sudo dpkg -i minio.deb
 
 # Create the mount directory if it doesn't exist
 echo "Creating mount directory $MNT_DIR..."
